@@ -6,10 +6,6 @@ namespace ToxicLemurs\DomainHelper;
  * Class DomainHelper
  * @package ToxicLemurs\DomainHelper
  */
-/**
- * Class DomainHelper
- * @package ToxicLemurs\DomainHelper
- */
 class DomainHelper
 {
     /**

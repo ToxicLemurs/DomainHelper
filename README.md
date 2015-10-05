@@ -39,11 +39,6 @@ You can override the Server Name as returned by HTTP_HOST:
     $domainHelper->setServerName('foo.example.com');
     $domainHelper->getDomainName();
     
-    OR
-    
-    DomainHelper::setServerName('foo.example.com');
-    DomainHelper::getDomainName();
-    
 To get the sub domain name(s):
 
     $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
@@ -61,7 +56,6 @@ You can either get a string or an array result back for the sub domains:
             
     OR
     
-    DomainHelper::setServerName('foo.example.com');
     DomainHelper::getSubDomainNames(true);
     
     Will return:
