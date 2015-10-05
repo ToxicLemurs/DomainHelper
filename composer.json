@@ -1,0 +1,27 @@
+{
+    "name": "toxic-lemurs/domain-helper",
+    "description": "A domain helper to aid in getting sub domain names and protocols.",
+    "keywords": ["helper", "domain", "php", "protocol", "secure", "https", "http", "simple", "laravel", "facade"],
+    "homepage": "https://github.com/ToxicLemurs/DomainHelper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Derik Nel",
+            "email": "derik.nel.8312@gmail.com",
+            "homepage": "https://github.com/ToxicLemurs/DomainHelper",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.9",
+        "illuminate/support": "5.0.x|5.1.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "ToxicLemurs\\DomainHelper\\": "src/"
+        }
+    }
+}
