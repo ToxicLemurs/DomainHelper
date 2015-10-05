@@ -1,6 +1,6 @@
 ## A simple helper to aid with determining sub domain names, root domains and protocols
 
-This helper will aid in determining sub domain names, root domains and protocols (http / https). 
+This helper will aid in determining sub domain names, root domains and protocols (http / https) with optional Laravel integration. 
 
 ## Installation:
 
@@ -16,14 +16,79 @@ Alternatively you can require this through composer via the command line:
 
 Run a composer update and add the following Service Provider in your config/app.php
 
-    ToxicLemurs\MenuBuilder\MenuBuilderServiceProvider::class,
+    ToxicLemurs\DomainHelper\DomainHelperServiceProvider::class,
 
-Optionally you can make use of the Facade:
+You can make use of the Facade feature in Laravel:
 
-    'MenuBuilder' => ToxicLemurs\MenuBuilder\Facades\MenuBuilder::class,
+    'DomainHelper' => ToxicLemurs\DomainHelper\Facades\DomainHelper::class,
     
-## Getting started:
+## Getting started and usage:
+
+You can use the Facade in Laravel to call various methods on this helper:
+
+    DomainHelper::getDomainName();
+    
+Or you can instantiate an instance of the Domain Helper class:
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->getDomainName();
+    
+You can override the Server Name as returned by HTTP_HOST:
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->setServerName('foo.example.com');
+    $domainHelper->getDomainName();
+    
+    OR
+    
+    DomainHelper::setServerName('foo.example.com');
+    DomainHelper::getDomainName();
+    
+To get the sub domain name(s):
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->getSubDomainNames();
+    
+    OR
+    
+    DomainHelper::getSubDomainNames();
+
+You can either get a string or an array result back for the sub domains:
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->setServerName('foo.bar.example.com');
+    $domainHelper->getSubDomainNames(true);
+            
+    OR
+    
+    DomainHelper::setServerName('foo.example.com');
+    DomainHelper::getSubDomainNames(true);
+    
+    Will return:
+         
+        array:2 [
+            0 => "foo"
+            1 => "bar"
+        ]
+    
+You can check if the domain you are currently on is the root domain:
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->isRoot();
+    
+    OR
+    
+    DomainHelper::isRoot();
+    
+You can get the current request protocol:
+
+    $domainHelper = new \ToxicLemurs\DomainHelper\DomainHelper();
+    $domainHelper->getProtocol();
+    
+    OR
+    
+    DomainHelper::getProtocol();
 
 ### License:
 
-This Menu Builder for Laravel is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+This Domain Helper is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
